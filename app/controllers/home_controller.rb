@@ -6,8 +6,11 @@ class HomeController < ApplicationController
   
   def result
     # params[:sort] ||= "product_price"
-    @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}
-    
+    if params[:search_product_name].present?
+      @search_product_name = Product.where("product_title LIKE '%#{params[:search_product_name]}%'").order("product_price asc").group_by {|t| t.product_title}
+    else
+      @search_product_name = nil
+    end
   end
   
   def board

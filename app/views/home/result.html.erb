@@ -1,38 +1,40 @@
 <%= render partial: "/layouts/search" %>
-<%= @search_product_name.values.flatten.size  %>개의 상품이 검색되었어여
+<% if @search_product_name == nil %>
 
-<% @search_product_name.each do |product_title,contents| %>
-<div class="row" style="border: 0.5px #D3D3D3 solid; border-radius:1px">
-    <div class="col-md-3">
-        <img style="width:200px; height:200px" src="<%= contents.first.product_picture_url %>">
-    </div>
-    <div class="col-md-5">
-        <h4><%= product_title %></h4>
-        <% if contents.first.product_price != contents.last.product_price %>
-            <%= contents.first.product_price %>원 ~ <%= contents.last.product_price %>원<br>
-        <% else %>
-            <%= contents.first.product_price %>원<br>
-        <% end %>
-    </div>
-    <div class="col-md-4">
-        <% for content in contents %>
-            <a href="<%= content.product_website_detail_address %>">
-                <%= content.product_website%>
-            </a>
-            <span style="float: right"><%= content.product_price %>원</span><br>
-        <% end %>
-    </div>
-</div>
-    <div>
-        
-        
-            
-        
-        
-            
-    </div>
-    <hr>
+    0 개의 상품이 검색되었어여
+
+<% else %>
+
+    <%= @search_product_name.values.flatten.size  %>개의 상품이 검색되었어여
+
+    <% @search_product_name.each do |product_title,contents| %>
+        <div class="row" style="border: 0.5px #D3D3D3 solid; border-radius:1px">
+            <div class="col-md-3">
+                <img style="width:200px; height:200px; filter: blur(5px);" src="<%= contents.first.product_picture_url %>">
+            </div>
+            <div class="col-md-5">
+                <h4><%= product_title %></h4>
+                <% if contents.first.product_price != contents.last.product_price %>
+                    <%= contents.first.product_price %>원 ~ <%= contents.last.product_price %>원<br>
+                <% else %>
+                    <%= contents.first.product_price %>원<br>
+                <% end %>
+            </div>
+            <div class="col-md-4">
+                <% for content in contents %>
+                    <a href="<%= content.product_website_detail_address %>">
+                        <%= content.product_website%>
+                    </a>
+                    <span style="float: right"><%= content.product_price %>원</span><br>
+                <% end %>
+            </div>
+        </div>
+        <hr>
+    <% end %>
+
 <% end %>
+
+
 
 
 <script type=text/javascript>
