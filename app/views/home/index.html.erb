@@ -1,0 +1,68 @@
+<%= render partial: "/layouts/search" %>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <p>만들고 있는, 만들 기능들(그 외 기능들 추천해주세요)</p><br>
+        리뷰 기능<br>
+        리뷰 모음 게시판<br>
+        수다방<br>
+    </div>
+    <div class="col-md-6">
+      
+        <!--%= hidden_field_tag :direction, params[:direction] %>-->
+        <!--%= hidden_field_tag :sort, params[:sort] %>-->
+        <div class="form-group" style="padding-bottom: 25px;">
+          <p>한줄톡!</p>
+          <div class="input-group">
+            <input type="text" class="form-control talk_content" placeholder="아무거나" style="background: none; background-color: none; border-radius: 0;">
+            <span class="input-group-btn">
+              <button class="btn btn-default talk_submit" type="submit" style="background: none; border-radius: 0;">톡!</button>
+            </span>
+          </div><!-- /input-group -->
+
+        </div>
+        <!--한줄 톡 보여주기-->
+        <div id="linetalks">
+          <% @linetalks.each do |l| %>
+            <p style="border-bottom:0.5px #D3D3D3 dashed"><%= l.linetalk_content %></p>
+            
+          
+          <% end %>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+
+  $(".talk_submit").click(function(){
+    
+    talk_content = $(".talk_content").val()
+    
+    $.ajax({
+      method:"post",
+      url: "/home/linetalk_write",
+      data: { linetalk_content_view: talk_content },
+      success: function(){
+        $("#linetalks").prepend("<p style=\"border-bottom:0.5px #D3D3D3 dashed\">"+talk_content+"</p>");
+        $(".talk_content").val('');
+      },  
+      error: function(){
+
+        alert("글이 작성되지 않았습니다.");
+        $(".talk_content").val('');
+      }
+      
+      
+      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
+      // $("#content_"+post_id).val('');
+    })
+  
+  })
+
+
+
+
+</script>

@@ -1,0 +1,50 @@
+	<div class="myModal" style="display: hidden; position:absolute; left:p; right:0; top: 0; height: 100%; width: 100%; background-color: rgba( 0, 0, 0, 0.5 ); z-index: 1;">
+		<div align="center" style="margin-left:auto; margin-right:auto; margin-top:150px; width:800px; border-radius: 0;">
+			<div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">아직 공사중입니당</h4>
+		      </div>
+		      <div class="modal-body">
+		        <img style="height:150px" src="/assets/under_construction.png">
+		      </div>
+		      <div class="modal-footer">
+		      	<a href="/">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal" style="background: none; border-radius: 0;">
+		        	  돌아가기
+		        	</button>
+		        </a>
+		      </div>
+		    </div>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+		$(".myModal").css("display", "block")
+  </script>
+ 
+  
+  <h1 align="center">재잘재잘</h1>
+  <table class="table table-striped">
+    <thead style="border-bottom:0.5px solid black">
+      <tr>
+        <th class="col-xs-1">#</th>
+        <th class="col-xs-7">제목</th>
+        <th class="col-xs-1">글쓰니</th>
+        <th class="col-xs-2">쓴날</th>
+        <th class="col-xs-1">조해수</th>
+      </tr>
+    </thead>
+    <% @sudas.each do |s| %>
+    <tr>
+      <td><%= s.id %></td>
+      <td><%= s.suda_title %></td>
+      <td><%= s.suda_writer %></td>
+      <td><%= s.created_at %></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+    <button class="btn btn-default" type="button" onclick="location.href='/home/write'" style="background: none; background-color: none; border-radius: 0;">
+      재잘재잘
+    </button>

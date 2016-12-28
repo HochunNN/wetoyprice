@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+  <!--Bootstrap-->
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+
+<div align="center" style="border-bottom: 0.5px #D3D3D3 solid">
+  <div class="btn-group" role="group" aria-label="...">
+    <button class="btn btn-default" type="button" onclick="location.href='/home/index'" style="background: none; background-color: none; border-radius: 0; border-top:none; border-bottom:none">
+      차자방
+    </button>
+    <button class="btn btn-default" type="button" onclick="location.href='/home/board'" style="background: none; background-color: none; border-radius: 0; border-top:none; border-bottom:none">
+      수다방
+    </button>
+  </div>
+</div>
+<div class="container">
+  <%= yield %>
+</div>
+
+<div style="border-top:1px #D3D3D3 solid; padding-top: 20px; padding-bottom: 20px; position:relative; bottom:0; width:100%;" align="center">
+  <p>Made by WE</p>
+  <p>연락처: welovelisten@gmail.com</p>
+  <p>건의 사항, 사이트 추가 등등 관련해서 이메일로 주시면 최대한 빨리 반영할게여~</p>  
+    
+
+</div>
+
+</body>
+
+
+
+</html>
