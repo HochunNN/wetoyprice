@@ -37,9 +37,9 @@
     <% @sudas.each do |s| %>
     <tr>
       <td><%= s.id %></td>
-      <td><%= s.suda_title %></td>
+      <td><a href="#" style="color:black"><%= s.suda_title %></a></td>
       <td><%= s.suda_writer %></td>
-      <td><%= s.created_at %></td>
+      <td><%= s.created_at.in_time_zone("Seoul") %></td>
     </tr>
     <% end %>
   </table>
