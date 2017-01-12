@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 style="margin-top: 30px;">검색해바여</h1>
+  <h1 style="margin-top: 30px;">소중이닷컴</h1>
     <form action="/home/result" method="get">
         <!--%= hidden_field_tag :direction, params[:direction] %>-->
         <!--%= hidden_field_tag :sort, params[:sort] %>-->
@@ -12,7 +12,7 @@
             </div><!-- /input-group -->
             <br><br>
             <p>
-              <span style="font-weight: bold; color:black"><%= Product.pluck(:product_website).uniq.size %>개</span> 의 사이트에서 <span style="font-weight: bold; color:red"><%= Product.all.size %>개</span>의 상품이 비교되고 있어요잉    
+              <span style="font-weight: bold; color:black"><%= Product.pluck(:product_website).uniq.size %>개</span> 의 사이트에서 <span style="font-weight: bold; color:red"><%= Product.all.size %>개</span>의 상품이 비교되고 있어요    
             </p>
         </div>
     </form>
