@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post  'home/result'
   post  'home/write_save'
   get   'home/linetalk_write'
+  get   'home/board_detail/:post_id' => "home#board_detail"
   post  'home/linetalk_write'
   
   # The priority is based upon order of creation: first created -> highest priority.

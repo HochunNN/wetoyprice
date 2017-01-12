@@ -1,0 +1,18 @@
+<div class="content" style="position:relative; top: 0; left: 0; height: auto; min-height: 620px; width: 100%; background-color: white;">
+	<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
+	    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
+	        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">수다방&nbsp;</span>
+            <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
+	    </div>
+	    <div style="padding: 10px; height: 60px; width: 100%; color: gray; border-top: 2px solid gray; background-color: #dfdfdf">
+	        제목: <span style="color:black; font-weight: bold;"<%= @detail_post.suda_title %></span>
+	        <span style="float: right"></span><br>
+	        글쓴이: <span style="color:black; font-weight: bold;"><%= @detail_post.suda_writer %></span>
+	    </div>
+        <br>
+        <%= @detail_post.suda_content %>
+        <br>
+        <div style="width: 100%; border-bottom: 2px solid gray;">
+	    </div>
+	</div>
+</div>

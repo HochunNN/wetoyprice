@@ -17,6 +17,10 @@ class HomeController < ApplicationController
     @sudas = Suda.order("id desc")
   end
   
+  def board_detail
+    @detail_post = Suda.find(params[:post_id])
+  end
+  
   def write
     
   end
