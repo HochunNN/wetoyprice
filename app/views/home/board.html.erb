@@ -44,7 +44,7 @@
       <td><%= s.id %></td>
       <td><a href="/home/board_detail/<%= s.id %>" style="color:black"><%= s.suda_title %></a></td>
       <td><%= s.suda_writer %></td>
-      <!--<td><= s.created_at.in_time_zone("Seoul") %></td>-->
+      <td><%= s.created_at.to_s(:onboard) %></td>
     </tr>
     <% end %>
   </table>
