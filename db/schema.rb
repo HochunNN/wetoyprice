@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226073929) do
+ActiveRecord::Schema.define(version: 20170204044327) do
 
   create_table "linetalks", force: :cascade do |t|
     t.string   "linetalk_content"
@@ -31,12 +31,43 @@ ActiveRecord::Schema.define(version: 20161226073929) do
     t.datetime "updated_at",                     null: false
   end
 
+  create_table "reviewreplies", force: :cascade do |t|
+    t.string   "reviewreplyname"
+    t.string   "reviewreplycontent"
+    t.integer  "review_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "review_title"
+    t.string   "review_writer"
+    t.string   "review_content"
+    t.string   "review_passwd"
+    t.string   "review_website"
+    t.string   "review_prod_name"
+    t.string   "review_image_url"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "review_viewcount", default: 0
+  end
+
+  create_table "sudareplies", force: :cascade do |t|
+    t.string   "sudareplyname"
+    t.string   "sudareplycontent"
+    t.integer  "suda_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "sudas", force: :cascade do |t|
     t.string   "suda_title"
     t.string   "suda_writer"
     t.string   "suda_content"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "suda_passwd"
+    t.integer  "suda_viewcount", default: 0
   end
 
 end

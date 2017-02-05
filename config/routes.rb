@@ -1,15 +1,46 @@
 Rails.application.routes.draw do
   
-  root  'home#index'
-  get   'home/index'
-  get   'home/result'
-  get   'home/board'
-  get   'home/write'
-  post  'home/result'
-  post  'home/write_save'
-  get   'home/linetalk_write'
-  get   'home/board_detail/:post_id' => "home#board_detail"
-  post  'home/linetalk_write'
+  
+##########################################################################################  
+################################메인화면 관련#############################################
+##########################################################################################
+  root  'home#page_main'
+  get   'home/page_main'
+  # get   'home/linetalk_write'
+  post  'home/page_main_linetalk_write'
+  
+  get   'home/page_announce'
+  get   'home/page_price'
+  
+##########################################################################################  
+##############################자유게시판 관련#############################################
+##########################################################################################
+  
+  get   'home/page_board_free'
+  get   'home/page_board_free_write'
+  post  'home/page_board_free_write_save'
+  get   'home/page_board_free_detail/:post_id' => "home#page_board_free_detail"
+  post  'home/page_board_free_update/:post_id' => "home#page_board_free_update"
+  post  'home/page_board_free_delete/:post_id' => "home#page_board_free_delete"
+  post  'home/page_board_free_update_save/:post_id' => "home#page_board_free_update_save"
+  post  'home/page_board_free_reply_save'
+  
+  
+##########################################################################################  
+################################리뷰게시판 관련###########################################
+##########################################################################################
+  
+  get   'home/page_board_review'
+  get   'home/page_board_review_write'
+  post  'home/page_board_review_write_save'
+  get   'home/page_board_review_detail/:post_id' => "home#page_board_review_detail"
+  post  'home/page_board_review_update/:post_id' => "home#page_board_review_update"
+  post  'home/page_board_review_delete/:post_id' => "home#page_board_review_delete"
+  post  'home/page_board_review_update_save/:post_id' => "home#page_board_review_update_save"
+  post  'home/page_board_review_reply_save'
+  
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

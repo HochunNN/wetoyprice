@@ -1,0 +1,179 @@
+.content .announce{
+    display: inline-block;
+    float: left;
+    margin-top: 40px; 
+    padding: 20px; 
+    width: 730px; 
+    height: 300px; 
+    border-top: 1px solid #dfdfdf; 
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.content .announce div{
+    width:100%; 
+    text-align: center;
+}
+
+.content .announce div span{
+    font-size: 26px;
+    font-family: Hanna !important;
+}
+
+.content .chat{
+    position: relative;
+    display: inline-block;
+    top: 0;
+    width: 250px; 
+    height: 540px; 
+    margin-top: -200px;
+    margin-left: 20px;
+    border: 1px solid #dfdfdf;
+    text-align: center;
+}
+
+.content .chat span{
+    font-size: 20px;
+    font-family: Hanna !important;
+}
+
+.content .chat span{
+    font-size: 20px;
+    font-family: Hanna !important;
+}
+
+.content #linetalks #linetalk{
+    width: 100%;
+    border-top: 10px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 10px solid transparent;
+    border-image: url(/assets/sojoong2_linetalk.jpg) 50 stretch;
+    border-image-slice: 10 20 20 10;
+}
+
+.content > .category{
+    margin-top: 40px;
+    width:100%; 
+    text-align: center;
+}
+
+.content > .category div{
+    width:100%; 
+    text-align: center;
+}
+
+.content > .category div span{
+    font-size: 20px;
+    font-family: Hanna !important;
+}
+
+.content > .category ul{
+    margin-top: 5px;
+}
+
+.content > .category ul li{
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    width: 16%;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #dfdfdf;
+}
+
+.content .board1{
+    display: inline-block;
+    float: left;
+    margin-top: 40px;  
+    width: 490px; 
+    height: 390px; 
+    border: 1px solid #dfdfdf;
+}
+
+.content .board1 #title{
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.content .board1 #title span{
+    font-size: 20px;
+    font-family: Hanna !important;
+}
+
+.content .board1 table{
+    display: block;
+    padding: 10px;
+}
+
+.content .board1 table tbody{
+    display: block;
+    width: 100%;
+}
+
+.content .board1 table tr{
+    display: block;
+    width: 100%;
+}
+
+.content .board1 table tr td a{
+    display: inline-block;
+    width: 385px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content .board2 table{
+    display: block;
+    padding: 10px;
+}
+
+.content .board2 table tbody{
+    display: block;
+    width: 100%;
+}
+
+.content .board2 table tr{
+    display: block;
+    width: 100%;
+}
+
+.content .board2 table tr td a{
+    display: inline-block;
+    width: 385px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content .board2{
+    display: inline-block;
+    margin-top: 40px;  
+    margin-left: 20px;  
+    width: 490px; 
+    height: 390px; 
+    border: 1px solid #dfdfdf;
+}
+
+.content .board2 #title{
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.content .board2 #title span{
+    font-size: 20px;
+    font-family: Hanna !important;
+}
+
+span#bar{
+    color: #f36774;
+}
+
+img#smallimg{
+    margin-right: 10px;
+    width: auto;
+    height: 28px;
+}

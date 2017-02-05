@@ -1,0 +1,61 @@
+<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
+    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
+        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">수다방&nbsp;</span>
+        <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
+    </div>
+    <div style="padding: 10px; height: 60px; width: 100%; color: gray; border-top: 2px solid gray; background-color: #dfdfdf">
+        제목: <span style="color:black; font-weight: bold;"><%= @board_review_detail.review_title %></span>
+        <span style="float: right"><%= @board_review_detail.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span><br>
+        글쓴이: <span style="color:black; font-weight: bold;"><%= @board_review_detail.review_writer %></span>
+    </div>
+    <br>
+    <%= @board_review_detail.review_content %>
+    <br>
+    <div style="width: 100%; border-bottom: 2px solid gray;">
+    </div>
+    
+    
+    
+    <div>
+    	<label for="exampleInputEmail1">댓글</label>
+    	<div>
+            
+            <input type="text" class="reply_name" name="reply_writer_name" id="exampleInputEmail1" placeholder="글쓴이">
+            <input type="text" class="reply_content" name="reply_content" id="exampleInputEmail1" placeholder="내용">
+        </div>
+        <button type="submit" value="<%= @board_review_detail.id %>" id="reply_submit">Submit</button>
+    </div>
+    
+    <div class="reply" style="margin-top: 20px;">
+    		<% @board_review_detail.reviewreplies.each do |r| %>
+    			ㄴ이름:<%= r.reviewreplyname %><br>
+    			&nbsp&nbsp 한말:<%= r.reviewreplycontent %>
+    			<hr>
+    		<% end %>
+    </div>
+</div>
+
+
+<script>
+
+    $("#reply_submit").click(function(){
+        post_id = this.value;
+        reply_name = $(".reply_name").val();
+        reply_content = $(".reply_content").val();
+        
+            $.ajax({
+            method: "POST",
+            url: "/home/page_board_review_reply_save",
+            data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+            success: function(){
+            
+                $(".reply").append("ㄴ이름:" + reply_name + "<br>");
+                $(".reply").append("&nbsp&nbsp&nbsp한말:"+reply_content + "<hr>");
+                $(".reply_name").val('');
+                $(".reply_content").val('');
+            }
+            
+        })
+    });
+
+</script>

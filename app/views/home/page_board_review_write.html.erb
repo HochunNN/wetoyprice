@@ -1,0 +1,115 @@
+<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
+    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
+        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">수다방&nbsp;</span>
+        <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
+    </div>  
+
+    <form id="write_form" action="/home/page_board_review_write_save" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">제목</label>
+                    <input type="text" name="review_title_view" class="form-control" id="suda_title_view" placeholder="제목" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">이름</label>
+                    <input type="text" name="review_writer_view" class="form-control" id="suda_writer_view" placeholder="롱메" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">비밀번호</label>
+                    <input type="password" name="review_passwd_view" class="form-control" id="suda_passwd_view" placeholder="수정 및 삭제시 필요" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">사이트 주소</label>
+                    <input type="text" name="review_website_view" class="form-control" id="product_website_name" placeholder="영어로입력해주세요(ex/ sojoong2.com)" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">제품명</label>
+                    <input type="text" name="review_prod_name_view" class="form-control" id="suda_title_view" placeholder="제품명을 적어주세요" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">내용</label>
+            <textarea class="form-control" name="review_content_view" id="suda_content_view" rows="5" placeholder="재잘재잘" style="background: none; background-color: none; border-radius: 0;"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputFile">사진 첨부</label>
+            <input type="file" id="exampleInputFile" style="background: none; background-color: none; border-radius: 0;">
+        </div>
+        
+        <button type="submit" class="btn btn-default" style="background: none; background-color: none; border-radius: 0;">재잘재잘</button>
+    </form>
+</div>
+    
+
+<script>
+    $(function(){
+        
+/////////////////////////////////////////////////////
+///////////////////validation////////////////////////
+/////////////////////////////////////////////////////
+        $.validator.setDefaults({
+            errorClass: 'help-block',
+            highlight: function(element) {
+                $(element)
+                    .closest('.form-group')
+                    .addClass('has-error');
+            },
+            unhighlight: function(element) {
+                $(element)
+                    .closest('.form-group')
+                    .removeClass('has-error');
+            }
+        });
+    
+        $("#write_form").validate({
+            rules: {
+                review_title_view: "required",
+                review_passwd_view: "required",
+                review_content_view: "required",
+                review_website_view: "required",
+                review_prod_name_view: "required"
+                
+                
+            },
+            messages: {
+                review_title_view: '제목을 입력해주세요',
+                review_passwd_view: '비밀번호를 입력해 주세요',
+                review_content_view: '내용을 입력해 주세요',
+                review_website_view: "웹사이트를 입력해주세요",
+                review_prod_name_view: "상품명을 입력해주세요"
+            }
+        
+            
+        });
+        
+        
+/////////////////////////////////////////////////////
+///////////////////autocomplete//////////////////////
+/////////////////////////////////////////////////////
+       
+        $( "#product_website_name" ).autocomplete({
+          source: '<%= home_page_board_review_write_path(:json) %>'
+        });
+        
+        
+    })
+    
+
+ 
+
+</script>

@@ -1,0 +1,226 @@
+.content .search{
+    margin-top: 40px; 
+    width: 100%; 
+}
+
+.content .search .category{
+    position: relative;
+    height: 40px;
+}
+
+.content .search .category #left{
+    position: absolute;
+    padding: 10px;
+    width: 200px;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+    font-family: Hanna !important;
+    background-color: #df2d39;
+}
+
+.content .search .category #right{
+    position: relative;
+    margin-left: 200px;
+    padding: 5px;
+    width: 800px;
+    height: 100%;
+    border: 1px solid #dfdfdf;
+}
+
+.content .search .category ul{ 
+    display: inline-block;
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+.content .search ul li{ 
+    display: inline-block;
+    padding: 5px 20px 5px 20px;
+    text-align: center;
+}
+
+.content .search ul li:hover{ 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content .search .option{
+    position: relative;
+    margin-top: -1px;
+    height: 40px;
+}
+
+.content .search .option #left{
+    position: absolute;
+    padding: 10px;
+    width: 200px;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+    font-family: Hanna !important;
+    background-color: #df2d39;
+}
+
+.content .search .option #right{
+    position: relative;
+    margin-left: 200px;
+    padding: 5px;
+    width: 800px;
+    height: 100%;
+    border: 1px solid #dfdfdf;
+}
+
+.content .search .name{
+    position: relative;
+    margin-top: -1px;
+    height: 50px;
+}
+
+.content .search .name #left{
+    position: absolute;
+    padding: 10px;
+    width: 200px;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+    font-family: Hanna !important;
+    background-color: #df2d39;
+}
+
+.content .search .name #right{
+    position: relative;
+    margin-left: 200px;
+    padding: 5px;
+    width: 800px;
+    height: 100%;
+    border: 1px solid #dfdfdf;
+}
+
+.content .search .name #product_name2{
+    position: relative;
+    float: right;
+    top: 1px;
+    margin: 5px 15px 0px 0px;
+    padding-left: 5px;
+    width: 740px;
+    height: 26px;
+    border: 0px;
+    border-bottom: 1px solid gray;
+}
+
+.content .search .name #search2{
+    position: relative;
+    display: inline-block;
+    float: right;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-size: cover;
+}
+
+
+.content .result{
+    margin-top: 40px;
+    width: 100%;
+    border-top: 1px solid #dfdfdf;
+}
+
+.content .result .item{
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+    height: 240px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.content .result .item #img{
+    float: left;
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    background-size: cover;
+}
+
+.content .result .item #info{
+    position: relative;
+    float: left;
+    display: inline-block;
+    padding-left: 10px;
+    width: 500px;
+    height: 100%;
+}
+
+.content .result .item #info #categories{
+    color: gray;
+}
+
+.content .result .item #info #name{
+    font-family: '돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.content .result .item #info #price{
+    display: inline-block;
+    margin: 10px;
+    color: #df2d39;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .result .item #info #subinfo{
+    position: absolute;
+    display: block;
+    bottom: 0px;
+    width: 100%;
+    height: 20px;
+    color: gray;
+}
+
+.content .result .item #subinfo span{
+    color: #f36774;
+    font-weight: bold;
+}
+
+
+.content .result .item #siteinfo{
+    float: left;
+    display: inline-block;
+    padding: 10px;
+    width: 290px;
+    height: 100%;
+    border-left: 1px solid #dfdfdf;
+    overflow: hidden;
+}
+
+.content .result .item #siteinfo ul{
+    list-style: none;
+    width: 100%;
+}
+
+.content .result .item #siteinfo ul li a{
+    display: inline-block;
+    width: 200px;
+    color: gray;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content .result .item #siteinfo ul li:nth-of-type(1) a{
+    color: black;
+    font-weight: bold;
+}
+
+.content .result .item #siteinfo ul li span{
+    float: right;
+}
+
+.content .result .item #siteinfo ul li:nth-of-type(1) span{
+    color: #df2d39;
+    font-weight: bold;
+}
+
+
+

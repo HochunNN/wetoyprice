@@ -1,0 +1,75 @@
+<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
+    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
+        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">수다방&nbsp;</span>
+        <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
+    </div>
+    <form id="write_form" action="/home/page_board_free_update_save/<%= @page_board_free_update.id %>" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">제목</label>
+                    <input type="text" name="suda_title_view" class="form-control" id="suda_title_view" placeholder="제목" value="<%= @page_board_free_update.suda_title %>" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">이름</label>
+                    <input type="text" name="suda_writer_view" class="form-control" id="suda_writer_view" placeholder="롱메" value="<%= @page_board_free_update.suda_writer %>" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">비밀번호</label>
+                    <input type="password" name="suda_passwd_view" class="form-control" id="suda_passwd_view" placeholder="수정 및 삭제시 필요" value="<%= @page_board_free_update.suda_passwd %>" style="background: none; background-color: none; border-radius: 0;">
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">내용</label>
+            <textarea class="form-control" name="suda_content_view" id="suda_content_view" rows="5" placeholder="재잘재잘" style="background: none; background-color: none; border-radius: 0;"><%= @page_board_free_update.suda_content %></textarea>
+        </div>
+        
+        
+        
+        <button type="submit" class="btn btn-default" style="background: none; background-color: none; border-radius: 0;">재잘재잘</button>
+    </form>
+</div>
+
+<script>
+    $(function(){
+        $.validator.setDefaults({
+            errorClass: 'help-block',
+            highlight: function(element) {
+                $(element)
+                    .closest('.form-group')
+                    .addClass('has-error');
+            },
+            unhighlight: function(element) {
+                $(element)
+                    .closest('.form-group')
+                    .removeClass('has-error');
+            }
+        });
+    
+        $("#write_form").validate({
+            rules: {
+                suda_title_view: "required",
+                suda_category_view: "required",
+                suda_passwd_view: "required",
+                suda_content_view: "required"
+                
+                
+            },
+            messages: {
+                suda_title_view: '제목을 입력해주세요',
+                suda_category_view: '카테고리를 선택해주세요',
+                suda_passwd_view: '비밀번호를 입력해 주세요',
+                suda_content_view: '내용을 입력해 주세요'
+            }
+        
+            
+        });
+    })
+</script>

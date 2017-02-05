@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>소중이닷컴 Baby</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  
-  <!--Bootstrap-->
-  
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
-  
-  <!--구글 검색?-->
-  <meta name="google-site-verification" content="OtpdfC_tFJpAp2XosSHbV3fP14OzN0JWSYuSJfGOfoA" />
-</head>
-<body>
-
-<div align="center" style="border-bottom: 0.5px #D3D3D3 solid">
-  <div class="btn-group" role="group" aria-label="...">
-    <button class="btn btn-default" type="button" onclick="location.href='/home/index'" style="background: none; background-color: none; border-radius: 0; border-top:none; border-bottom:none">
-      소중이
-    </button>
-    <button class="btn btn-default" type="button" onclick="location.href='/home/board'" style="background: none; background-color: none; border-radius: 0; border-top:none; border-bottom:none">
-      수다방
-    </button>
-  </div>
-</div>
-<div class="container" style="min-height:800px">
-  <%= yield %>
-</div>
-
-<div style="border-top:1px #D3D3D3 solid; padding-top: 20px; padding-bottom: 20px; position:relative; bottom:0; width:100%;" align="center">
-  <p>Made by WE</p>
-  <p>연락처: welovelisten@gmail.com</p>
-  <p>건의 사항, 사이트 추가 등등 관련해서 이메일로 주시면 최대한 빨리 반영할게여~</p>  
+  <head>
+    <title>소중이닷컴 Baby</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--구글 검색?-->
+    <meta name="google-site-verification" content="OtpdfC_tFJpAp2XosSHbV3fP14OzN0JWSYuSJfGOfoA" />
     
-
-</div>
-
-</body>
-
-
-
+    <!--jquery_validation-->
+    
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+  
+    <!--jquery autocomplete-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  </head>
+  <body>
+    <div class="header">
+			<a href="/"><img src=<%= image_path "sojoong2_header.jpg" %>></a>
+			<br><br>
+			<span class="counter" data-count="39">0</span>개의 사이트에서 <span class="counter" data-count="100861">0</span>개의 상품이 비교되고 있어요!
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a id="menu1" href="/home/page_main">메인</a></li>
+				<li><a id="menu2" href="/home/page_announce">알림방</a></li>
+				<li><a id="menu3" href="/home/page_price">알뜰방</a></li>
+				<li><a id="menu4" style="cursor: default;">수다방</a></li>	
+			</ul>
+			|
+			<input id="product_name" type="text" placeholder="빠른 제품 검색">
+			<span id="search" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>)"></span>
+		</div>
+		<div id="menu3div">
+			<a style="cursor: default;">카테고리 준비중입니다.</a>
+		</div>
+		<div id="menu4div">
+			<a href="/home/page_board_free">자유로운 수다방</a>
+			<a href="/home/page_board_review">리뷰하는 수다방</a>
+		</div>
+		<div class="content">
+			<%= yield %>
+		</div>
+		<div class="footer">
+			Made by <span>WeLoveListen</span> | welovelisten@gmail.com
+		</div>
+  </body>
 </html>
-
+<script src="/assets/count.js"></script>
+<script src="/assets/menudropdown.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -59,5 +64,14 @@
 
   ga('create', 'UA-89884317-1', 'auto');
   ga('send', 'pageview');
-
+  $("#product_name").keydown(function (key) {
+    if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+      var url = "https://toy-price-comparison-hochunnn.c9users.io/home/page_price?search_product_name=" + $("#product_name").val()
+			location.href=url;
+    }
+  });
+  $("#search").click(function(){
+  	var url = "https://toy-price-comparison-hochunnn.c9users.io/home/page_price?search_product_name=" + $("#product_name").val()
+		location.href=url;
+  })
 </script>

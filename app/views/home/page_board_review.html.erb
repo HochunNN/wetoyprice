@@ -1,0 +1,103 @@
+	<div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
+	    <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
+	        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">리뷰하는 수다방&nbsp;</span>
+            <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">정보를 나누는 공간</span>
+	    </div>  
+  <table class="table table-striped">
+    <thead style="border-bottom:0.5px solid black">
+      <tr>
+        <th class="col-xs-1">#</th>
+        <th class="col-xs-5">제목</th>
+        <th class="col-xs-2">글쓴이</th>
+        <th class="col-xs-1.5">쓴날</th>
+        <th class="col-xs-1">조회수</th>
+        <th class="col-xs-1.5"></th>
+      </tr>
+    </thead>
+    <% @reviews.each do |r| %>
+    <tr>
+      <td><%= r.id %></td>
+      <td><a href="/home/page_board_review_detail/<%= r.id %>" style="color:black"><%= r.review_title.truncate(25) %></a></td>
+      <td><%= r.review_writer %></td>
+      <td><%= r.created_at.strftime('%b %d, %H:%M') %></td>
+      <td><!--조회수!-->
+          <%= r.review_viewcount %>
+        
+      </td>
+      <td>
+        <!--!!!!!삭제하는거!!!!-->
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">삭제</button>
+        
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            
+            <div class="modal-content">
+              <form action="/home/page_board_review_delete/<%= r.id %>" method="post">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">비밀번호를 입력해주세요</h4>
+                  </div>
+                  <div class="modal-body">
+                    
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">비밀번호</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1" name="checkreviewpw_view" placeholder="비밀번호">
+                      </div>
+                      
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    
+                  </div>
+              </form>
+            </div>
+        
+          </div>
+        </div>
+        
+        <!--!!!!!!!!!수정하는거!!!!!!!!!!!!!-->
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reviseModal">수정</button>
+        
+        <!-- Modal -->
+        <div id="reviseModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <form action="/home/page_board_review_update/<%= r.id %>" method="post">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">비밀번호를 입력해주세요</h4>
+                  </div>
+                  <div class="modal-body">
+                    
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">비밀번호</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1" name="checkreviewpw_view" placeholder="비밀번호">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">Submit</button>  
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+    <button class="btn btn-default" type="button" onclick="location.href='/home/page_board_review_write'" style="background: none; background-color: none; border-radius: 0;">
+      재잘재잘
+    </button>
+  </div>
+<script>
+  $("document").ready(function(){
+    $("#menu4").css("color", "black")
+  })
+</script>
