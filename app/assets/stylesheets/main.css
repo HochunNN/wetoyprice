@@ -52,6 +52,7 @@
 }
 
 .content > .category{
+    display: inline-block;
     margin-top: 40px;
     width:100%; 
     text-align: center;

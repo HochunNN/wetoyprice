@@ -1,61 +1,68 @@
 <div id="inner" style="position:relative; left: 50%; margin-left: -500px; padding-top: 20px; padding-bottom: 20px; width: 1000px;">
     <div id="hot100Title" style="margin-bottom: 20px; padding: 20px; height: 82px; width: 100%; border: 1px solid #dfdfdf; background-color: white;">
-        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">수다방&nbsp;</span>
-        <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">재잘재잘 떠드는 공간</span>
+        <span style="float: left; color: black; font-size: 30px; font-weight: 700; ">리뷰하는 수다방&nbsp;</span>
+        <span style="float: left; margin-top: 14px; color: black; font-size: 16px;">정보를 나누는 공간</span>
     </div>
     <div style="padding: 10px; height: 60px; width: 100%; color: gray; border-top: 2px solid gray; background-color: #dfdfdf">
         제목: <span style="color:black; font-weight: bold;"><%= @board_review_detail.review_title %></span>
         <span style="float: right"><%= @board_review_detail.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span><br>
         글쓴이: <span style="color:black; font-weight: bold;"><%= @board_review_detail.review_writer %></span>
     </div>
-    <br>
-    <%= @board_review_detail.review_content %>
-    <br>
-    <div style="width: 100%; border-bottom: 2px solid gray;">
+    <div style="padding: 10px; width: 100%; min-height: 200px;">
+        <%= @board_review_detail.review_content %>
     </div>
-    
-    
-    
-    <div>
-    	<label for="exampleInputEmail1">댓글</label>
-    	<div>
-            
-            <input type="text" class="reply_name" name="reply_writer_name" id="exampleInputEmail1" placeholder="글쓴이">
-            <input type="text" class="reply_content" name="reply_content" id="exampleInputEmail1" placeholder="내용">
+    <div style="padding: 10px; width: 100%; border-top: 2px solid gray; background-color: #dfdfdf;">
+    	<label for="exampleInputEmail1">댓글 <%= @board_review_detail.reviewreplies.length %>개</label>
+    	<table class="reply">
+    	<% @board_review_detail.reviewreplies.each do |r| %>
+			<tr style="display: block; padding-top: 10px; padding-bottom: 10px; border-bottom-width: 1px; border-bottom-style: dotted;">
+    			<td style="width: 100px;"><%= r.reviewreplyname %></td>
+    			<td style="width: 860px;"><%= r.reviewreplycontent %></td>
+    		</tr>
+		<% end %>
+		</table>
+    	<div style="margin-top: 15px; width: 100%;">
+            <input type="text" class="reply_name" name="reply_writer_name" id="exampleInputEmail1" placeholder="글쓴이" style="width: 100px;">
+            <input type="text" class="reply_content" name="reply_content" id="exampleInputEmail1" placeholder="내용" style="width: 790px;">
+            <button type="submit" value="<%= @board_review_detail.id %>" id="reply_submit" style="padding: 0px 5px 0px 5px;">댓글달기</button>
         </div>
-        <button type="submit" value="<%= @board_review_detail.id %>" id="reply_submit">Submit</button>
-    </div>
-    
-    <div class="reply" style="margin-top: 20px;">
-    		<% @board_review_detail.reviewreplies.each do |r| %>
-    			ㄴ이름:<%= r.reviewreplyname %><br>
-    			&nbsp&nbsp 한말:<%= r.reviewreplycontent %>
-    			<hr>
-    		<% end %>
     </div>
 </div>
 
 
 <script>
-
+    $(".reply_content").keydown(function (key) {
+        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+            post_id = this.value;
+            reply_name = $(".reply_name").val();
+            reply_content = $(".reply_content").val();
+            $.ajax({
+                method: "POST",
+                url: "/home/page_board_review_reply_save",
+                data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
+                success: function(){
+                    $(".reply").append("<tr style=\"display: block; padding-top: 10px; padding-bottom: 10px; border-bottom-width: 1px; border-bottom-style: dotted;\"><td style=\"width: 100px;\">" 
+                    +reply_name+"</td><td style=\"width: 860px;\">"+reply_content+"</td></tr>");
+                    $(".reply_name").val('');
+                    $(".reply_content").val('');
+                }
+            })
+        }
+    });
     $("#reply_submit").click(function(){
         post_id = this.value;
         reply_name = $(".reply_name").val();
         reply_content = $(".reply_content").val();
-        
             $.ajax({
             method: "POST",
             url: "/home/page_board_review_reply_save",
             data: {id_of_post: post_id , reply_writer_name: reply_name, reply_content: reply_content },
             success: function(){
-            
-                $(".reply").append("ㄴ이름:" + reply_name + "<br>");
-                $(".reply").append("&nbsp&nbsp&nbsp한말:"+reply_content + "<hr>");
+                $(".reply").append("<tr style=\"display: block; padding-top: 10px; padding-bottom: 10px; border-bottom-width: 1px; border-bottom-style: dotted;\"><td style=\"width: 100px;\">" 
+                +reply_name+"</td><td style=\"width: 860px;\">"+reply_content+"</td></tr>");
                 $(".reply_name").val('');
                 $(".reply_content").val('');
             }
-            
         })
     });
-
 </script>

@@ -19,7 +19,7 @@
       <td><%= r.id %></td>
       <td><a href="/home/page_board_review_detail/<%= r.id %>" style="color:black"><%= r.review_title.truncate(25) %></a></td>
       <td><%= r.review_writer %></td>
-      <td><%= r.created_at.strftime('%b %d, %H:%M') %></td>
+      <td><%= r.created_at.strftime('%m-%d %H:%M') %></td>
       <td><!--조회수!-->
           <%= r.review_viewcount %>
         
@@ -93,9 +93,11 @@
     <% end %>
   </table>
     <button class="btn btn-default" type="button" onclick="location.href='/home/page_board_review_write'" style="background: none; background-color: none; border-radius: 0;">
-      재잘재잘
+      리뷰쓰기
     </button>
   </div>
+  
+
 <script>
   $("document").ready(function(){
     $("#menu4").css("color", "black")

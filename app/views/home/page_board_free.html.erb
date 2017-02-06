@@ -43,7 +43,7 @@
       <td><%= s.id %></td>
       <td><a href="/home/page_board_free_detail/<%= s.id %>" style="color:black"><%= s.suda_title.truncate(25) %></a></td>
       <td><%= s.suda_writer %></td>
-      <td><%= s.created_at.strftime('%b %d, %H:%M') %></td>
+      <td><%= s.created_at.strftime('%m-%d %H:%M') %></td>
       <td><!--조회수!-->
  
           <%= s.suda_viewcount %>
@@ -127,17 +127,16 @@
 
 
     <button class="btn btn-default" type="button" onclick="location.href='/home/page_board_free_write'" style="background: none; background-color: none; border-radius: 0;">
-      재잘재잘
+      글쓰기
     </button>
     
   </div>
   
+  
 <script>
   $("document").ready(function(){
-    $("#menu4").css("color", "black")
+    $("#menu4").css("color", "black");
     
-    if (<%= @notice %> != "undefined") {
-    alert(<%= @notice %>)
-    }
+    
   })
 </script>

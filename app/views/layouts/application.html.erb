@@ -52,6 +52,11 @@
 		<div class="footer">
 			Made by <span>WeLoveListen</span> | welovelisten@gmail.com
 		</div>
+		
+		
+		<!--에러메세지 뜨게하기(게시판들!)-->
+		<input type="hidden" id="hidden_notice" value="<%=notice%>">
+  
   </body>
 </html>
 <script src="/assets/count.js"></script>
@@ -74,4 +79,11 @@
   	var url = "https://toy-price-comparison-hochunnn.c9users.io/home/page_price?search_product_name=" + $("#product_name").val()
 		location.href=url;
   })
+  
+  var notice = $("#hidden_notice").val();
+    
+  if ( notice != "" ) {
+      alert(notice)
+  }
+  
 </script>

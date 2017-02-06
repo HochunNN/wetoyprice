@@ -76,13 +76,24 @@ class HomeController < ApplicationController
           redirect_to '/home/page_board_free'
       end
     rescue ActiveRecord::RecordNotFound
-    redirect_to '/home/page_board_free'
+    # redirect_to '/home/page_board_free'
     
   end
   
   def page_board_free_update
     @page_board_free_update = Suda.find(params[:post_id])
     
+      if @page_board_free_update.suda_passwd == params[:checksudapw_view]
+            @page_board_free_update = Suda.find(params[:post_id])  
+            
+            
+            
+        else
+          flash[:notice] = '비밀번호가 틀렸습니다.'
+          redirect_to '/home/page_board_free'
+      end
+      
+  
   end
   
   def page_board_free_update_save
@@ -126,7 +137,7 @@ class HomeController < ApplicationController
 ##########################################################################################
 
   def page_board_review
-    @reviews = Review.all
+    @reviews = Review.order("id desc")
   end
   
   def page_board_review_write
@@ -174,8 +185,18 @@ class HomeController < ApplicationController
   
   def page_board_review_delete
     board_review_delete = Review.find(params[:post_id])
-    board_review_delete.delete
-    redirect_to "/home/page_board_review"
+    if board_review_delete.review_passwd == params[:checksudapw_view]
+        board_review_delete.delete
+        
+        redirect_to "/home/page_board_review"
+        
+      else
+        flash[:notice] = '비밀번호가 틀렸습니다.'
+        redirect_to "/home/page_board_review"
+    end
+    rescue ActiveRecord::RecordNotFound
+  # redirect_to "/home/page_board_review"
+    
   end
   
   def page_board_review_update
@@ -188,14 +209,21 @@ class HomeController < ApplicationController
     else
       @websites = websites_filter
     end
-  
-  
-    respond_to do |format|  
-      format.html # index.html.erb  
-    # Here is where you can specify how to handle the request for "/people.json"
-      format.json { render :json => @websites.to_json }
-    end
     
+    
+    if @board_review_update.review_passwd == params[:checkreviewpw_view]
+        
+      respond_to do |format|  
+        format.html # index.html.erb  
+      # Here is where you can specify how to handle the request for "/people.json"
+        format.json { render :json => @websites.to_json }
+      end  
+        
+        
+      else
+        flash[:notice] = '비밀번호가 틀렸습니다.'
+        redirect_to "/home/page_board_review"
+    end
     
   end
   
