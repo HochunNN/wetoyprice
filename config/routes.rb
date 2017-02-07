@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post  'home/page_board_free_delete/:post_id' => "home#page_board_free_delete"
   post  'home/page_board_free_update_save/:post_id' => "home#page_board_free_update_save"
   post  'home/page_board_free_reply_save'
+  post  'home/page_board_free_viewcount'
   
   
 ##########################################################################################  
@@ -38,7 +39,7 @@ Rails.application.routes.draw do
   post  'home/page_board_review_delete/:post_id' => "home#page_board_review_delete"
   post  'home/page_board_review_update_save/:post_id' => "home#page_board_review_update_save"
   post  'home/page_board_review_reply_save'
-  
+  post  'home/page_board_review_viewcount'
 
 
   

@@ -16,10 +16,22 @@ class HomeController < ApplicationController
     render :nothing => true
   end
 
-##########################################################################################
-##########################################################################################
+##########################################################################################  
+##################################알림방 관련#############################################
 ##########################################################################################
 
+
+
+
+
+
+
+
+
+
+##########################################################################################  
+##############################알뜰게시판 관련#############################################
+##########################################################################################
   
   def page_price
     # params[:sort] ||= "product_price"
@@ -39,8 +51,16 @@ class HomeController < ApplicationController
   
   def page_board_free_detail
     @board_free_detail = Suda.find(params[:post_id])
-    @board_free_detail.suda_viewcount += 1
-    @board_free_detail.save
+    
+  end
+  
+  def page_board_free_viewcount
+    
+    @board_free_viewcount = Suda.find(params[:post_id])
+    @board_free_viewcount.suda_viewcount += 1
+    @board_free_viewcount.save
+    
+    render :nothing => true
   end
   
   def page_board_free_write
@@ -140,6 +160,20 @@ class HomeController < ApplicationController
     @reviews = Review.order("id desc")
   end
   
+  def page_board_review_detail
+    @board_review_detail = Review.find(params[:post_id])
+    
+  end
+  
+  def page_board_review_viewcount
+    
+    @board_review_viewcount = Review.find(params[:post_id])
+    @board_review_viewcount.review_viewcount += 1
+    @board_review_viewcount.save
+    
+    render :nothing => true
+  end
+  
   def page_board_review_write
     # I will explain this part in a moment.
     websites_filter = Product.pluck(:product_website).uniq
@@ -177,12 +211,6 @@ class HomeController < ApplicationController
     redirect_to "/home/page_board_review_detail/#{review.id}"
   end
   
-  def page_board_review_detail
-    @board_review_detail = Review.find(params[:post_id])
-    @board_review_detail.review_viewcount += 1
-    @board_review_detail.save
-  end
-  
   def page_board_review_delete
     board_review_delete = Review.find(params[:post_id])
     if board_review_delete.review_passwd == params[:checksudapw_view]
@@ -192,7 +220,7 @@ class HomeController < ApplicationController
         
       else
         flash[:notice] = '비밀번호가 틀렸습니다.'
-        redirect_to "/home/page_board_review"
+        redirect_to "/home/page_board_review_detail/#{board_review_delete.id}"
     end
     rescue ActiveRecord::RecordNotFound
   # redirect_to "/home/page_board_review"
@@ -222,7 +250,7 @@ class HomeController < ApplicationController
         
       else
         flash[:notice] = '비밀번호가 틀렸습니다.'
-        redirect_to "/home/page_board_review"
+        redirect_to "/home/page_board_review_detail/#{@board_review_update.id}"
     end
     
   end
