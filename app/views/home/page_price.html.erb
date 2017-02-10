@@ -76,10 +76,19 @@
 	</div>
 	<div class="name">
 		<div id="left">검색</div>
-		<div id="right">
-		    <span id="search2" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>)"></span>
-		    <input id="product_name2" type="text">
-		</div>
+		<form action="/home/page_price" method="get" style="display:inline">
+			<div id="right">
+				<button type=submit id="search2" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>); border: 0px;"></button>
+			    <!--<span id="search2" style="background-image: url(< image_path "sojoong2_search.jpg" %>)"></span>-->
+			    <input id="product_name2" name="search_product_name" type="text">
+			</div>
+		</form>
+		
+			<!--<div id="right">-->
+			<!--    <span id="search2" style="background-image: url(<= image_path "sojoong2_search.jpg" %>)"></span>-->
+			<!--    <input id="product_name2" type="text">-->
+			<!--</div>-->
+		
 	</div>
 </div>
 
@@ -128,16 +137,18 @@
 <script>
 	$("document").ready(function(){
 	    $("#menu3").css("color", "black")
-	    $("#product_name2").keydown(function (key) {
-            if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-              var url = "page_price?search_product_name=" + $("#product_name2").val()
-        			location.href=url;
-            }
-          });
-          $("#search2").click(function(){
-          	var url = "page_price?search_product_name=" + $("#product_name2").val()
-        		location.href=url;
-          })
+	   // $("#product_name2").keydown(function (key) {
+    //         if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	   //     	var uri = "page_price?search_product_name=" + $("#product_name2").val()
+	   //     	encodeURI(uri);
+				// location.href=uri;
+    //     	}
+    //       });
+    //       $("#search2").click(function(){
+    //       	var uri = "page_price?search_product_name=" + $("#product_name2").val()
+    //       	encodeURI(uri);
+    // 		location.href=uri;
+    //       })
 		$('#man').mouseenter(function(){
 			$('#man').css("font-weight", "bold")	
 			$('#temp1').css("display", "inline-block")	

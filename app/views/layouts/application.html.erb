@@ -39,8 +39,12 @@
 				<li><a id="menu4" style="cursor: default;">수다방</a></li>	
 			</ul>
 			|
-			<input id="product_name" type="text" placeholder="빠른 제품 검색">
-			<span id="search" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>)"></span>
+			<form action="/home/page_price" method="get" style="display:inline">
+				<input type="text" name="search_product_name" placeholder="빠른 제품 검색">
+				<button type=submit id="search" style="background-image: url(<%= image_path "sojoong2_search.jpg" %>); border: 0px;">
+			</form>
+			<!--<input id="product_name" type="text" placeholder="빠른 제품 검색">-->
+			<!--<span id="search" style="background-image: url(<= image_path "sojoong2_search.jpg" %>)"></span>-->
 		</div>
 		<div id="menu3div">
 			<a style="cursor: default;">카테고리 준비중입니다.</a>
@@ -74,13 +78,15 @@
   ga('send', 'pageview');
   $("#product_name").keydown(function (key) {
     if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-      var url = "home/page_price?search_product_name=" + $("#product_name").val()
-			location.href=url;
+      var uri = "../home/page_price?search_product_name=" + $("#product_name").val()
+      encodeURI(uri);
+			location.href=uri;
     }
   });
   $("#search").click(function(){
-  	var url = "home/page_price?search_product_name=" + $("#product_name").val()
-		location.href=url;
+  	var uri = "../home/page_price?search_product_name=" + $("#product_name").val()
+  	encodeURI(uri);
+		location.href=uri;
   })
   
   var notice = $("#hidden_notice").val();
