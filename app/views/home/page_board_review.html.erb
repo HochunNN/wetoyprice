@@ -21,6 +21,7 @@
         <a href="/home/page_board_review_detail/<%= r.id %>" class="viewcounter" value="<%= r.id %>" style="color:black">
           <%= r.review_title.truncate(25) %>
         </a>
+        [<%= r.reviewreplies.length%>]
       </td>
       <td><%= r.review_writer %></td>
       <td><%= r.created_at.strftime('%m-%d %H:%M') %></td>

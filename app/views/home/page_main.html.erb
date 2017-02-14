@@ -73,7 +73,13 @@
 	    <% @sudas.slice(0,16).each do |s| %>
     	   <tr>
     	       <td style="width: 70px; font-family: Consolas;"><%= s.created_at.strftime('[%m-%d]') %></td>
-    	       <td style="width: 388px;"><a href="home/page_board_free_detail/<%= s.id  %>" style="color: black; font-family: Consolas;"><%= s.suda_title %></a></td>
+    	       <td style="width: 388px;">
+    	       	<a href="home/page_board_free_detail/<%= s.id  %>" style="color: black; font-family: Consolas;">
+    	       		<%= s.suda_title %>
+    	       		[<%= s.sudareplies.length%>]
+    	       	</a>
+    	       	
+    	       </td>
     	   </tr>
 	    <% end %>
 	</table>
@@ -86,7 +92,13 @@
 	    <% @reviews.slice(0,16).each do |r| %>
     	   <tr>
     	       <td style="width: 70px; font-family: Consolas;"><%= r.created_at.strftime('[%m-%d]') %></td>
-    	       <td style="width: 388px;"><a href="home/page_board_review_detail/<%= r.id %>" style="color: black; font-family: Consolas;"><%= r.review_title %></a></td>
+    	       <td style="width: 388px;">
+	    	       	<a href="home/page_board_review_detail/<%= r.id %>" style="color: black; font-family: Consolas;">
+	    	       		<%= r.review_title %>
+	    	       		[<%= r.reviewreplies.length%>]
+	    	       	</a>
+	    	       	
+    	       </td>
     	   </tr>
 	    <% end %>
 	</table>
