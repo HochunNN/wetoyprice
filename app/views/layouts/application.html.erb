@@ -29,7 +29,7 @@
     <div class="header">
 			<a href="/"><img src=<%= image_path "sojoong2_header.jpg" %>></a>
 			<br><br>
-			<span class="counter" data-count="39">0</span>개의 사이트에서 <span class="counter" data-count="100861">0</span>개의 상품이 비교되고 있어요!
+			<span class="counter" data-count="<%= Product.pluck(:product_website).uniq.size %>">0</span>개의 사이트에서 <span class="counter" data-count="<%= Product.all.size %>">0</span>개의 상품이 비교되고 있어요!
 		</div>
 		<div class="nav">
 			<ul>
