@@ -120,9 +120,12 @@
 					<ul>
 					    <% for content in contents %>
 					        <li>
-		                        <a href="<%= content.product_website_detail_address %>">
-		                            <%= content.product_website%>
-		                        </a>
+					        	<%= link_to content.product_website, home_page_price_redirect_path(:page_redirect => content.product_website_detail_address)%>
+		                        <!--<a href="/home/page_price_redirect">-->
+		                        <!--	<input type="hidden" name="page_redirect" value="<= content.product_website_detail_address %>">-->
+		                        <!--    <= %>-->
+		                            
+		                        <!--</a>-->
 		                        <span><%= content.product_price %>원</span>
 		                    </li>
 		                <% end %>
