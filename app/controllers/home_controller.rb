@@ -46,7 +46,8 @@ class HomeController < ApplicationController
   
   
   def page_price_redirect
-    redirect_to params[:page_redirect]
+    @redirect_url = params[:page_redirect]
+    
     
   end
 ##########################################################################################  
